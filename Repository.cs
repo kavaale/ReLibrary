@@ -180,7 +180,7 @@ namespace Repository{
             var movies = db.Movies.OrderBy(m => m.id).ToList();
             if(movies.Count()>0){
                 foreach(var movie in movies){
-                    Console.WriteLine(movie.id + ") " + movie.title);
+                    Console.WriteLine(movie.id + ") " + movie.title + " Genres: " + movie.genres);
                 }
             }
             else{
