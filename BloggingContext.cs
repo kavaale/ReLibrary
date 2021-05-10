@@ -6,6 +6,7 @@ namespace LibraryConsole
     public class BloggingContext : DbContext
     {
         public DbSet<Models.Movie> Movies { get; set; }
+        public DbSet<Models.User> Users { get; set; }
         
 
         

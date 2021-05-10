@@ -175,5 +175,46 @@ namespace Repository{
             }
             Console.WriteLine();
         }   
+        public void ListMedia(BloggingContext db)
+        {
+            var movies = db.Movies.OrderBy(m => m.id).ToList();
+            if(movies.Count()>0){
+                foreach(var movie in movies){
+                    Console.WriteLine(movie.id + ") " + movie.title);
+                }
+            }
+            else{
+                Console.WriteLine("No movies in database");
+            }
+            Console.WriteLine();
+        }
+        public void AddUser(BloggingContext db)
+        {
+            Console.WriteLine("Enter User Info");
+            User user = new User();
+            Console.Write("Username: ");
+            user.name = Console.ReadLine();
+            Console.Write("Occupation: ");
+            user.occupation = Console.ReadLine();
+            db.Users.Add(user);
+            db.SaveChanges();
+            Console.WriteLine("User Added");
+            Console.WriteLine("Username: " + user.name);
+            Console.WriteLine("Occupation: " + user.occupation);
+            Console.WriteLine();
+        }
+        public void ListUsers(BloggingContext db)
+        {
+            var users = db.Users.OrderBy(u => u.id).ToList();
+            if(users.Count()>0){
+                foreach(var user in users){
+                    Console.WriteLine(user.id + ") " + user.name);
+                }
+            }
+            else{
+                Console.WriteLine("No users in database");
+            }
+            Console.WriteLine();
+        }
     } 
 }
